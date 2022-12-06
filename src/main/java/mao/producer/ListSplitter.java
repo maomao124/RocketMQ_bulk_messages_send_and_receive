@@ -25,7 +25,7 @@ public class ListSplitter implements Iterator<List<Message>>
     /**
      * 大小限制
      */
-    private static final int SIZE_LIMIT = 1024 * 1024 * 4;
+    private static final int SIZE_LIMIT = 1000 * 40;
 
     /**
      * 消息列表
@@ -37,6 +37,11 @@ public class ListSplitter implements Iterator<List<Message>>
      */
     private int currIndex;
 
+    /**
+     * 构造方法
+     *
+     * @param messages 消息列表
+     */
     public ListSplitter(List<Message> messages)
     {
         this.messages = messages;
@@ -48,6 +53,11 @@ public class ListSplitter implements Iterator<List<Message>>
         return currIndex < messages.size();
     }
 
+    /**
+     * 下一个
+     *
+     * @return {@link List}<{@link Message}>
+     */
     @Override
     public List<Message> next()
     {
